@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>最新消息</title>
+
+  <link rel="stylesheet" href="../css/bootstrap5_css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- datatables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
+
+  <style>
+    body {
+      margin: 3rem;
+    }
+  </style>
+
+</head>
+
+<body>
+  <a href="./index.html" style="text-decoration:none; color: gray;"><i class="fas fa-angle-double-left"></i> 回上頁</a>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-3" style="text-align:center">
+        <h1>
+          最新消息
+        </h1>
+      </div>
+      <div class="col-12 ">
+        <div class="row justify-content-end ">
+          <div class="col-2">
+            <select class="categorySele form-select form-select mb-3" aria-label=".form-select example">
+              <option value="全部類別" selected>全部類別</option>
+              <option value="一般公告">一般公告</option>
+              <option value="新聞發佈">新聞發佈</option>
+              <option value="研究&典藏">研究&典藏</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <table id="myTable" class="table table-striped table-hover ">
+              <thead>
+                <tr>
+                  <th class="text-nowrap text-center" scope="col">序號</th>
+                  <th class="text-nowrap text-center" scope="col">公告類別</th>
+                  <th class="text-nowrap text-center" scope="col">標題</th>
+                  <th class="text-nowrap text-center" scope="col">刊登日期</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="text-center">1</th>
+                  <td class="seletag">一般公告</td>
+                  <td>臺北藝術園區─臺北市立美術館擴建工程 &#124 樹木移除計畫書</td>
+                  <td class="text-nowrap">2022/06/08 - 2022/12/29</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-center">2</th>
+                  <td class="seletag">一般公告</td>
+                  <td>2022 X-site《藍屋》於6月10日、6月30日不對外開放民眾參觀</td>
+                  <td class="text-nowrap">2022/06/06 - 2022/06/30</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-center">3</th>
+                  <td class="seletag">研究&典藏</td>
+                  <td>《現代美術學報》第45期徵稿</td>
+                  <td class="text-nowrap">2022/06/06 - 2022/11/30</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-center">4</th>
+                  <td class="seletag">新聞發佈</td>
+                  <td>2023年推出「楊德昌回顧展」&#124 新聞稿</td>
+                  <td class="text-nowrap">2022/05/30 - 2022/06/30</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-center">5</th>
+                  <td class="seletag">新聞發佈</td>
+                  <td>英國知名時尚設計師瑪莉官世界巡迴展登臺，於北美館重現席捲全球的搖擺六〇年代 &#124 新聞稿</td>
+                  <td class="text-nowrap">2022/05/27 - 2022/06/27</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-center">6</th>
+                  <td class="seletag">一般公告</td>
+                  <td>本館地下樓中庭《迷霧花園》於6/2上午、6/7-6/9暫停開放</td>
+                  <td class="text-nowrap">2022/05/26 - 2022/06/09</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-center">7</th>
+                  <td class="seletag">新聞發佈</td>
+                  <td>北美館擴建案正式啟動，獲選團隊將打造首座地下美術館 &#124 新聞稿</td>
+                  <td class="text-nowrap">2022/05/23 - 2022/06/23</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="../js/bootstrap5_js/bootstrap.js"></script>
+  <script src="../js/jquery_js/jquery.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+
+      $('#myTable').DataTable(
+        {
+          "lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "所有"]],
+          "scrollCollapse": true,
+          "searching": false,
+          language: {
+            "lengthMenu": "顯示 _MENU_ 筆資料",
+            "sProcessing": "處理中...",
+            "sZeroRecords": "没有匹配结果",
+            "sInfo": "目前有 _MAX_ 筆資料",
+            "sInfoEmpty": "目前共有 0 筆紀錄",
+            "sInfoFiltered": " ",
+            "sInfoPostFix": "",
+            "sSearch": "尋找:",
+            "sUrl": "",
+            "sEmptyTable": "尚未有資料紀錄存在",
+            "sLoadingRecords": "載入資料中...",
+            "sInfoThousands": ",",
+            "oPaginate": {
+              "sFirst": "首頁",
+              "sPrevious": "上一頁",
+              "sNext": "下一頁",
+              "sLast": "末頁"
+            },
+            "order": [[0, "desc"]],
+            "oAria": {
+              "sSortAscending": ": 以升序排列此列",
+              "sSortDescending": ": 以降序排列此列"
+            }
+          },
+        }
+      );
+    });
+  </script>
+</body>
+
+</html>
